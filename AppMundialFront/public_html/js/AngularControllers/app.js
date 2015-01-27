@@ -36,10 +36,10 @@
             templateUrl: 'competitorInfo.html',
             controller: ['$http', '$scope', function ($http, $scope) {
                     var self = this;
+                    self.competitors = [];
                     $scope.api = function () {
                         var callApi = $http.get('http://localhost:8083/webresources/competitors').success(function (data) {
-                            self.competitors = data.competitors;
-                            $scope.total = data.totalRecords;
+                            self.competitors = data;
                         });
                     }
                     $scope.api();
